@@ -21,15 +21,13 @@ library(waffle)
 library(tidyverse)
 library(titanic)
 
-# Cargamos el data frame: Titanic
+# Almacenamos el dataset en la variable data
 data <-titanic_train
 
 # Mostramos primeros 6 registros del data frame
-head(data)
-
 knitr::kable(head(titanic_train))
 
-# Mostramos estructura de la base de datos: data frame
+# Mostramos tipos de variables del data frame
 str(Titanic)
 
 # Resumen de las variables del data frame

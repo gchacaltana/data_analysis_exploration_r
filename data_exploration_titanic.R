@@ -68,3 +68,25 @@ iron(
   waffle(filter(survivors_by_class, Pclass==3) %>% 
            select(-Pclass), rows = 15, size=1, colors = c("firebrick1", "forestgreen"),
          xlab = "1 cuadrado = 1 persona", legend_pos = "bottom")+ labs(subtitle = "Tercera clase") )
+
+# Obteniendo cantidad de sobrevivientes por sexo
+survivors_by_sex <- data %>% 
+  group_by(Sex, Survived) %>%
+  count() %>%
+  ungroup()%>%
+  mutate(Survived = ifelse(Survived==0,"No Sobrevivió", "Si Sobrevivió"))
+
+# Waffle Plot
+iron(
+  waffle(filter(survivors_by_sex, Sex=="male") %>% select(-Sex),
+         rows = 10, size=1,
+         colors = c("firebrick1", "forestgreen"),
+         legend_pos = "none")+
+    labs(title = "Gráfico de sobrevivientes del Titanic por sexo",
+         subtitle = "Hombres"),
+  waffle(filter(survivors_by_sex, Sex=="female") %>% select(-Sex),
+         rows = 10, size=1,
+         colors = c("firebrick1", "forestgreen"),
+         legend_pos = "none")+ 
+    labs(subtitle = "Mujeres"))
+

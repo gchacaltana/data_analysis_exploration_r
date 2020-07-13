@@ -1,2 +1,6 @@
-# data_analysis_exploration_r
-Análisis y Exploración de datos en R
+# Análisis y Exploración de datos en R
+
+Caso 1: Titanic
+
+  Script: data_exploration_titanic.R
+
